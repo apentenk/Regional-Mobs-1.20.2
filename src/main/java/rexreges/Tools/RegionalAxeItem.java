@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class RegionalAxeItem extends AxeItem implements RegionalToolItem {
+public class RegionalAxeItem extends AxeItem{
     private final boolean upgrade;
     private final StatusEffect bonusOne;
     private final StatusEffect bonusTwo;
@@ -25,9 +25,9 @@ public class RegionalAxeItem extends AxeItem implements RegionalToolItem {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (upgrade) {
-            this.updateToolBonus(world, entity, selected, bonusOne, 1);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 1);
         } else {
-            this.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
@@ -36,7 +36,7 @@ public class RegionalAxeItem extends AxeItem implements RegionalToolItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         if (upgrade) {
-            critBonus(attacker, bonusTwo);
+            RegionalToolItem.critBonus(attacker, bonusTwo);
         }
         return true;
     }
@@ -45,7 +45,7 @@ public class RegionalAxeItem extends AxeItem implements RegionalToolItem {
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         boolean mine = super.postMine(stack, world, state, pos, miner);
         if (mine && upgrade) {
-            critBonus(miner, bonusTwo);
+            RegionalToolItem.critBonus(miner, bonusTwo);
         }
         return mine;
     }

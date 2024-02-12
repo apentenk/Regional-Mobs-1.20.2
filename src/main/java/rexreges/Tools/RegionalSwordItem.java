@@ -11,7 +11,7 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class RegionalSwordItem extends SwordItem implements RegionalToolItem {
+public class RegionalSwordItem extends SwordItem{
     private final boolean upgrade;
     private final StatusEffect bonusOne;
     private final StatusEffect bonusTwo;
@@ -27,9 +27,9 @@ public class RegionalSwordItem extends SwordItem implements RegionalToolItem {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (upgrade) {
-            this.updateToolBonus(world, entity, selected, bonusOne, 1);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 1);
         } else {
-            this.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
@@ -38,7 +38,7 @@ public class RegionalSwordItem extends SwordItem implements RegionalToolItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean hit = super.postHit(stack, target, attacker);
         if (hit && upgrade) {
-            this.critBonus(attacker, bonusTwo);
+            RegionalToolItem.critBonus(attacker, bonusTwo);
         }
         return hit;
     }
@@ -49,7 +49,7 @@ public class RegionalSwordItem extends SwordItem implements RegionalToolItem {
             if (state.isIn(BlockTags.SWORD_EFFICIENT)) {
                 stack.damage(1, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 if (upgrade) {
-                    critBonus(miner, bonusTwo);
+                    RegionalToolItem.critBonus(miner, bonusTwo);
                 }
             } else {
                 stack.damage(2, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));

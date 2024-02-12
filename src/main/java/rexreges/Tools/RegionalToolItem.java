@@ -7,9 +7,9 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
 
-public interface RegionalToolItem {
+public class RegionalToolItem {
 
-    default void critBonus(LivingEntity entity, StatusEffect bonusOne) {
+    public static void critBonus(LivingEntity entity, StatusEffect bonusOne) {
         if (isCritial(entity)) {
             if (bonusOne.equals(StatusEffects.SATURATION)) {
                 entity.addStatusEffect(new StatusEffectInstance(bonusOne));
@@ -19,7 +19,7 @@ public interface RegionalToolItem {
         }
     }
 
-    default void updateToolBonus(World world, Entity entity, boolean selected, StatusEffect bonusOne, int amplifier) {
+    public static void updateToolBonus(World world, Entity entity, boolean selected, StatusEffect bonusOne, int amplifier) {
         if (!world.isClient()) {
             if (entity instanceof LivingEntity && selected) {
                 LivingEntity livingEntity = (LivingEntity) entity;
@@ -28,7 +28,7 @@ public interface RegionalToolItem {
         }
     }
 
-    default void updateToolBonus(World world, Entity entity, boolean selected, StatusEffect bonusOne,
+    public static void updateToolBonus(World world, Entity entity, boolean selected, StatusEffect bonusOne,
             StatusEffect bonusTwo, int amplifier) {
         if (!world.isClient()) {
             if (entity instanceof LivingEntity && selected) {
