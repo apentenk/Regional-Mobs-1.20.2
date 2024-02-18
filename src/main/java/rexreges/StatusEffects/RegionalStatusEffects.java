@@ -25,7 +25,6 @@ public class RegionalStatusEffects {
                                         "62a7ebad-dbc1-4812-9ddd-d4eca6f7ffee",
                                         -0.15f, EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
 
-
         public static final StatusEffect BRUTAL_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 0)
                         .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                                         "eb83e810-0d14-40f4-9775-47f8ac6d33d2", 0.05f,
@@ -34,7 +33,6 @@ public class RegionalStatusEffects {
                         .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                                         "62a7ebad-dbc1-4812-9ddd-d4eca6f7ffee",
                                         -0.04f, EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
-
 
         public static final StatusEffect SPEED_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 0)
                         .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
@@ -48,6 +46,27 @@ public class RegionalStatusEffects {
         public static final StatusEffect RESITANCE_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 0);
         public static final StatusEffect VULNERABLE_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL,
                         9662828);
+
+        public static final StatusEffect ABSORPTION_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 0)
+                        .addAttributeModifier(EntityAttributes.GENERIC_MAX_ABSORPTION,
+                                        "cab79d16-6ea8-42b7-a6dd-ab0fe6b1b302", 2.0,
+                                        EntityAttributeModifier.Operation.ADDITION);
+        public static final StatusEffect REACH_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 0);
+        public static final StatusEffect HASTE_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 0);
+
+        public static final StatusEffect DEPLETION_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 0)
+                        .addAttributeModifier(EntityAttributes.GENERIC_MAX_HEALTH,
+                                        "77e9f761-bee9-4329-9601-45b6dc820201", -2.0,
+                                        EntityAttributeModifier.Operation.ADDITION);
+        public static final StatusEffect YIELD_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 0);
+        public static final StatusEffect FATIGUE_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 0);
+
+        public static final StatusEffect DEPLETION = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 0)
+                        .addAttributeModifier(EntityAttributes.GENERIC_MAX_HEALTH,
+                                        "d665175f-2923-462d-bacd-94f5a951a9e4", -4.0,
+                                        EntityAttributeModifier.Operation.ADDITION);
+        public static final StatusEffect YIELD = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 0);
+        public static final StatusEffect FATIGUE = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 0);
 
         public static final Potion RESISTANCE = new Potion(new StatusEffectInstance(StatusEffects.RESISTANCE, 3600));
         public static final Potion LONG_RESISTANCE = new Potion("resistance",
@@ -73,7 +92,6 @@ public class RegionalStatusEffects {
         public static final Potion STRONG_HASTE = new Potion("haste",
                         new StatusEffectInstance(StatusEffects.HASTE, 1800, 1));
 
-
         public static void registerStatusEffectsAndPotions() {
                 RegionalMobs.LOGGER.debug("Registering Armor for " + RegionalMobs.MOD_ID);
 
@@ -84,10 +102,16 @@ public class RegionalStatusEffects {
                 RegionalMobs.registerEffect("brutal_vita", BRUTAL_VITA);
                 RegionalMobs.registerEffect("speed_vita", SPEED_VITA);
                 RegionalMobs.registerEffect("resistance_vita", RESITANCE_VITA);
+                RegionalMobs.registerEffect("haste_vita", HASTE_VITA);
+                RegionalMobs.registerEffect("reach_vita", REACH_VITA);
+                RegionalMobs.registerEffect("absorption_vita", ABSORPTION_VITA);
 
                 RegionalMobs.registerEffect("gentle_mors", GENTLE_MORS);
                 RegionalMobs.registerEffect("slowness_mors", SLOWNESS_MORS);
                 RegionalMobs.registerEffect("vulnerable_mors", VULNERABLE_MORS);
+                RegionalMobs.registerEffect("fatigue", FATIGUE_MORS);
+                RegionalMobs.registerEffect("yield", YIELD_MORS);
+                RegionalMobs.registerEffect("depletion", DEPLETION_MORS);
 
                 RegionalMobs.registerPotion("resistance", RESISTANCE);
                 RegionalMobs.registerPotion("long_resistance", LONG_RESISTANCE);
