@@ -14,6 +14,12 @@ import rexreges.Items.RegionalItems;
 import rexreges.mixin.BrewingRecipeRegistryMixin;
 
 public class RegionalStatusEffects {
+        public static final StatusEffect FROSTED = new DamagingStatusEffect(4324090, 1.5f).addAttributeModifier(
+                        EntityAttributes.GENERIC_MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15f,
+                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
+        public static final StatusEffect SEARED = new DamagingStatusEffect(16430657, 1.5f);
+        public static final StatusEffect PLAGUED = new DamagingStatusEffect(9088329, 1.5f);
+
         public static final StatusEffect SUBMISSION = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 9662828);
 
         public static final StatusEffect RESITANCE_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL,
@@ -101,8 +107,20 @@ public class RegionalStatusEffects {
         public static final Potion STRONG_HASTE = new Potion("haste",
                         new StatusEffectInstance(StatusEffects.HASTE, 1800, 1));
 
+        public static final StatusEffect LURKER_BLESSING = new CreeperBlessing(0, StatusEffects.SPEED);
+        public static final StatusEffect STALKER_BLESSING = new CreeperBlessing(0, RegionalStatusEffects.AGGRESSION);
+        public static final StatusEffect HUNTER_BLESSING = new CreeperBlessing(0, StatusEffects.RESISTANCE);
+
         public static void registerStatusEffectsAndPotions() {
                 RegionalMobs.LOGGER.debug("Registering Armor for " + RegionalMobs.MOD_ID);
+
+                RegionalMobs.registerEffect("frosted", FROSTED);
+                RegionalMobs.registerEffect("seared", SEARED);
+                RegionalMobs.registerEffect("plagued", PLAGUED);
+
+                RegionalMobs.registerEffect("lurker_blessing", LURKER_BLESSING);
+                RegionalMobs.registerEffect("stalker_blessing", STALKER_BLESSING);
+                RegionalMobs.registerEffect("hunter_blessing", HUNTER_BLESSING);
 
                 RegionalMobs.registerEffect("submission", SUBMISSION);
 

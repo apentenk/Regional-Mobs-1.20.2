@@ -1,6 +1,22 @@
 package rexreges.render.entity;
 
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import rexreges.Mobs.Hostile.ArcticSpiderEntity;
+import rexreges.Mobs.Hostile.ChillagerEntity;
+import rexreges.Mobs.Hostile.DesertSpiderEntity;
+import rexreges.Mobs.Hostile.GhoulEntity;
+import rexreges.Mobs.Hostile.GrillagerEntity;
+import rexreges.Mobs.Hostile.HunterEntity;
+import rexreges.Mobs.Hostile.HuskEntity;
+import rexreges.Mobs.Hostile.LurkerEntity;
+import rexreges.Mobs.Hostile.LushSpiderEntity;
+import rexreges.Mobs.Hostile.OutcastEntity;
+import rexreges.Mobs.Hostile.RegionalHostileMobs;
+import rexreges.Mobs.Hostile.StalkerEntity;
+import rexreges.Mobs.Hostile.StrayEntity;
+import rexreges.Mobs.Hostile.TillagerEntity;
+import rexreges.Mobs.Hostile.VagrantEntity;
+import rexreges.Mobs.Hostile.WightEntity;
 import rexreges.Weapons.RegionalTridentEntityTypes;
 import rexreges.Weapons.RegionalWeapons;
 
@@ -38,7 +54,6 @@ public class RegionalEntityRenderers {
                 (context) -> new RegionalTridentEntityRenderer(context,
                         RegionalWeapons.BLOOMING_NETHERITE_TRIDENT.getTexture()));
 
-        /*
         EntityRendererRegistry.register(RegionalHostileMobs.ARCTIC_SPIDER_ENTITY,
                 (context) -> new RegionalSpiderEntityRenderer(context, ArcticSpiderEntity.TEXTURE, ArcticSpiderEntity.EYE_TEXTURE));
         EntityRendererRegistry.register(RegionalHostileMobs.DESERT_SPIDER_ENTITY,
@@ -74,6 +89,7 @@ public class RegionalEntityRenderers {
         EntityRendererRegistry.register(RegionalHostileMobs.OUTCAST_ENTITY,
                 (context) -> new RegionalSkeletonEntityRenderer(context, OutcastEntity.TEXTURE, OutcastEntity.OVERLAY_TEXTURE));
 
+        /*
         EntityRendererRegistry.register(RegionalPassiveMobs.POLAR_BEAR, (context) -> new RegionalBearEntityRenderer(context, RegionalBearEntity.POLAR_TEXTURE));
         EntityRendererRegistry.register(RegionalPassiveMobs.GRIZZLY_BEAR, (context) -> new RegionalBearEntityRenderer(context, RegionalBearEntity.GRIZZLY_TEXTURE));
         EntityRendererRegistry.register(RegionalPassiveMobs.CAMEL_ENTITY, (context) -> new RegionalCamelEntityRenderer(context, EntityModelLayers.CAMEL));

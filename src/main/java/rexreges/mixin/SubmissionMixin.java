@@ -16,6 +16,9 @@ public class SubmissionMixin {
     @ModifyVariable(method = "modifyAppliedDamage", at = @At("HEAD"))
     private float calculateSubmission(float amount, DamageSource source) {
         if (!source.isIn(DamageTypeTags.BYPASSES_RESISTANCE)) {
+            if(thisEntity.hasStatusEffect(RegionalStatusEffects.PLAGUED)){
+                amount *= 1.15f;
+            }
             if (thisEntity.hasStatusEffect(RegionalStatusEffects.SUBMISSION)) {
                 amount *= (float) 1f
                         + ((thisEntity.getStatusEffect(RegionalStatusEffects.SUBMISSION).getAmplifier() + 1f)

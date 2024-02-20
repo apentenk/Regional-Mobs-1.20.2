@@ -16,6 +16,9 @@ public class AggressionMixin {
         float f = amount;
         if (source.getSource() instanceof LivingEntity){
             LivingEntity entity = (LivingEntity)source.getSource();
+            if(entity.hasStatusEffect(RegionalStatusEffects.SEARED)){
+                f *= 0.85f;
+            }
             if (entity.hasStatusEffect(RegionalStatusEffects.AGGRESSION)){
                 f *= 1 + ((entity.getStatusEffect(RegionalStatusEffects.AGGRESSION).getAmplifier() +1) *0.2f);
             }

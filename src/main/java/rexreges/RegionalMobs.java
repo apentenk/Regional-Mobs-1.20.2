@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import rexreges.Armor.RegionalArmor;
 import rexreges.Enchantments.RegionalEnchantments;
 import rexreges.Items.RegionalItems;
+import rexreges.Mobs.Hostile.RegionalHostileMobs;
 import rexreges.StatusEffects.RegionalStatusEffects;
 import rexreges.Tools.RegionalTools;
 import rexreges.Weapons.RegionalWeapons;
@@ -66,5 +67,6 @@ public class RegionalMobs implements ModInitializer {
 		RegionalArmor.registerArmor();
 		RegionalEnchantments.registerEnchantments();
 		RegionalStatusEffects.registerStatusEffectsAndPotions();
+		RegionalHostileMobs.registerHostileMobs();
 	}
 }
