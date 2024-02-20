@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/blooming_netherite_bow",
+    "textures": {
+        "layer0": "regionalmobs:item/blooming_netherite_bow_pulling_1"
+    }
+}

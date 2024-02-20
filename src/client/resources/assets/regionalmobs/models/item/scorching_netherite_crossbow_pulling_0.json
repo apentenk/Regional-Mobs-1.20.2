@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/scorching_netherite_crossbow",
+    "textures": {
+        "layer0": "regionalmobs:item/scorching_netherite_crossbow_pulling_0"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/rose_gold_bow",
+    "textures": {
+        "layer0": "regionalmobs:item/rose_gold_bow_pulling_2"
+    }
+}

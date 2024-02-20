@@ -1,0 +1,11 @@
+{
+    "parent": "regionalmobs:item/wood_shield",
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "regionalmobs:item/wood_shield_blocking"
+        }
+    ]
+}

@@ -37,7 +37,7 @@ loom {
 			inherit server
 			name "Data Generation"
 			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/client/generated")}"
 			vmArg "-Dfabric-api.datagen.modid=regionalmobs"
  
 			runDir "build/datagen"
@@ -50,7 +50,7 @@ sourceSets {
 	main {
 		resources {
 			srcDirs += [
-					'src/main/generated'
+					'src/client/generated'
 			]
 		}
 	}

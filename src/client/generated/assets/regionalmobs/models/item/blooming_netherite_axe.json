@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "regionalmobs:item/blooming_netherite_axe"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/iron_bow",
+    "textures": {
+        "layer0": "regionalmobs:item/iron_bow_pulling_0"
+    }
+}

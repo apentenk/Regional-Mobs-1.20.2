@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/amber_iron_crossbow",
+    "textures": {
+        "layer0": "regionalmobs:item/amber_iron_crossbow_firework"
+    }
+}

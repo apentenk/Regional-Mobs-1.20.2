@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/iron_crossbow",
+    "textures": {
+        "layer0": "regionalmobs:item/iron_crossbow_pulling_2"
+    }
+}

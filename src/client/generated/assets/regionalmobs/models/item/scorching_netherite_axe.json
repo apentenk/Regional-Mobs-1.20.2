@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "regionalmobs:item/scorching_netherite_axe"
+  }
+}

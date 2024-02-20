@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/netherite_crossbow",
+    "textures": {
+        "layer0": "regionalmobs:item/netherite_crossbow_firework"
+    }
+}

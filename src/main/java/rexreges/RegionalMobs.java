@@ -10,9 +10,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import rexreges.Armor.RegionalArmor;
+import rexreges.Enchantments.RegionalEnchantments;
 import rexreges.Items.RegionalItems;
 import rexreges.StatusEffects.RegionalStatusEffects;
 import rexreges.Tools.RegionalTools;
+import rexreges.Weapons.RegionalWeapons;
 
 import java.text.DecimalFormat;
 
@@ -59,6 +62,9 @@ public class RegionalMobs implements ModInitializer {
 	public void onInitialize() {
 		RegionalItems.registerItems();
 		RegionalTools.registerTools();
+		RegionalWeapons.registerRangedWeapons();
+		RegionalArmor.registerArmor();
+		RegionalEnchantments.registerEnchantments();
 		RegionalStatusEffects.registerStatusEffectsAndPotions();
 	}
 }

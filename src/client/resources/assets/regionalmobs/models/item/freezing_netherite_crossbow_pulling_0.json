@@ -1,0 +1,6 @@
+{
+    "parent": "regionalmobs:item/freezing_netherite_crossbow",
+    "textures": {
+        "layer0": "regionalmobs:item/freezing_netherite_crossbow_pulling_0"
+    }
+}
