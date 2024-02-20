@@ -18,7 +18,7 @@ public class RegionalSwordItem extends SwordItem{
 
     public RegionalSwordItem(SwordItem base, Settings settings, boolean upgrade, StatusEffect bonusOne,
             StatusEffect bonusTwo) {
-        super(base.getMaterial(), (int) base.getAttackDamage(), -2.4f, settings);
+        super(base.getMaterial(), (int) (base.getAttackDamage() - base.getMaterial().getAttackDamage()), -2.4f, settings);
         this.upgrade = upgrade;
         this.bonusOne = bonusOne;
         this.bonusTwo = bonusTwo;
@@ -27,7 +27,7 @@ public class RegionalSwordItem extends SwordItem{
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 1);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
         } else {
             RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
         }
@@ -37,8 +37,8 @@ public class RegionalSwordItem extends SwordItem{
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean hit = super.postHit(stack, target, attacker);
-        if (hit && upgrade) {
-            RegionalToolItem.critBonus(attacker, bonusTwo);
+        if (hit && upgrade && RegionalToolItem.isCritial(attacker)) {
+            RegionalToolItem.critBonus(attacker, bonusOne);
         }
         return hit;
     }
@@ -49,7 +49,7 @@ public class RegionalSwordItem extends SwordItem{
             if (state.isIn(BlockTags.SWORD_EFFICIENT)) {
                 stack.damage(1, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 if (upgrade) {
-                    RegionalToolItem.critBonus(miner, bonusTwo);
+                    RegionalToolItem.critBonus(miner, bonusOne);
                 }
             } else {
                 stack.damage(2, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));

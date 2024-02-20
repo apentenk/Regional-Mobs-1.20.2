@@ -91,6 +91,14 @@ public class RegionalTrident extends TridentItem{
         return this.name;
     }
 
+    public boolean isUpgrade(){
+        return this.upgrade;
+    }
+
+    public StatusEffect getBonus(){
+        return this.bonusOne;
+    }
+
     public String getTexture() {
         return "textures/entity/" + this.name + ".png";
     }
@@ -154,7 +162,7 @@ public class RegionalTrident extends TridentItem{
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 1);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
         } else if(alloy){
             RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
         }
@@ -165,7 +173,7 @@ public class RegionalTrident extends TridentItem{
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         if (upgrade) {
-            RegionalToolItem.critBonus(attacker, bonusTwo);
+            RegionalToolItem.critBonus(attacker, bonusOne);
         }
         return true;
     }

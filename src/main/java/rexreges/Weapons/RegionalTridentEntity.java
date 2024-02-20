@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,12 +21,15 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import rexreges.Tools.RegionalToolItem;
 
 public class RegionalTridentEntity extends TridentEntity {
     private boolean dealtDamage;
     private ItemStack tridentStack;
     private ToolMaterial material;
     private boolean isCritical = false;
+    private StatusEffect bonusOne;
+    private boolean upgrade;
 
     private EntityType<? extends RegionalTridentEntity> type;
 
@@ -43,6 +47,8 @@ public class RegionalTridentEntity extends TridentEntity {
         this.tridentStack = new ItemStack(trident);
         this.material = trident.getMaterial();
         this.type = trident.getEntityType();
+        this.bonusOne = trident.getBonus();
+        this.upgrade = trident.isUpgrade();
     }
 
     private RegionalTrident getTrident(EntityType<? extends RegionalTridentEntity> entityType) {
@@ -101,6 +107,9 @@ public class RegionalTridentEntity extends TridentEntity {
                     EnchantmentHelper.onTargetDamaged((LivingEntity) entity2, livingEntity2);
                 }
                 this.onHit(livingEntity2);
+                if (isCritical && this.upgrade && this.getOwner() instanceof LivingEntity){
+                    RegionalToolItem.critBonus((LivingEntity)this.getOwner(), this.bonusOne);
+                }
             }
         }
         this.setVelocity(this.getVelocity().multiply(-0.01, -0.1, -0.01));

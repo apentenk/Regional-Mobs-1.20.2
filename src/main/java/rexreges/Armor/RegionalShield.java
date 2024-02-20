@@ -27,7 +27,6 @@ public class RegionalShield extends ShieldItem {
     private final String texture;
     private final float damage;
     protected final UUID SHIELD_KNOCKBACK = UUID.fromString("a62104a6-53a4-448d-8900-b1ae0c4a7b3c");
-    private boolean canParry = false;
     private final boolean upgrade;
     private final StatusEffect bonusOne;
     private final StatusEffect bonusTwo;
@@ -51,42 +50,47 @@ public class RegionalShield extends ShieldItem {
 
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        this.canParry = false;
-        super.onStoppedUsing(stack, world, user, remainingUseTicks);
-    }
-
-    public boolean parry(PlayerEntity user, LivingEntity entity) {
-        if (entity.equals(user.getAttacker()) && user.age - user.getLastAttackedTime() < 20 && canParry) {
-            entity.takeKnockback(0.5f, MathHelper.sin(user.getYaw() * ((float) Math.PI / 180)),
-                    -MathHelper.cos(user.getYaw() * ((float) Math.PI / 180)));
-            if (entity.damage(user.getDamageSources().playerAttack(user), this.damage) && this.upgrade) {
-                RegionalToolItem.critBonus(user, bonusTwo);
+        int parry = 0;
+        if (!world.isClient()) {
+            if (user.getAttacker() != null && user instanceof PlayerEntity) {
+                if (Math.abs(user.age - user.getLastAttackedTime()) < 10) {
+                    LivingEntity entity = user.getAttacker();
+                    entity.takeKnockback(0.33f, MathHelper.sin(user.getYaw() * ((float) Math.PI / 180)),
+                            -MathHelper.cos(user.getYaw() * ((float) Math.PI / 180)));
+                    if (entity.damage((user.getDamageSources().playerAttack((PlayerEntity) user)), this.damage)
+                            && this.upgrade) {
+                        RegionalToolItem.critBonus(user, bonusOne);
+                    }
+                    parry = 40;
+                }
             }
-            this.canParry = false;
-            return true;
+            ((PlayerEntity)user).getItemCooldownManager().set(stack.getItem(), (int) (80 - parry));
         }
-        return false;
+        super.onStoppedUsing(stack, world, user, remainingUseTicks);
     }
 
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (!world.isClient) {
             float f = (float) (stack.getMaxUseTime() - remainingUseTicks);
-            if (f < 500 && f > 0) {
-                this.canParry = true;
-            } else {
-                this.canParry = false;
+            if (f > 30 && user instanceof PlayerEntity) {
+                ((PlayerEntity)user).getItemCooldownManager().set(stack.getItem(), (int) (80));
+                user.clearActiveItem();
             }
         }
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        boolean offhand = false;
+        if (entity instanceof LivingEntity) {
+            offhand = ((LivingEntity) entity).getOffHandStack().equals(stack);
+        }
         if (this.bonusOne != StatusEffects.GLOWING) {
             if (upgrade) {
-                RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
+                RegionalToolItem.updateToolBonus(world, entity, (selected || offhand), bonusOne, 0);
             } else {
-                RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
+                RegionalToolItem.updateToolBonus(world, entity, (selected || offhand), bonusOne, bonusTwo, 0);
             }
         }
         super.inventoryTick(stack, world, entity, slot, selected);

@@ -12,40 +12,40 @@ import rexreges.StatusEffects.RegionalStatusEffects;
 
 public class RegionalTools {
 
-        public static final AxeItem ROSE_GOLD_AXE = new RegionalAxeItem((AxeItem)Items.DIAMOND_AXE, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-        public static final AxeItem AMBER_IRON_AXE = new RegionalAxeItem((AxeItem)Items.DIAMOND_AXE, new Item.Settings(),false,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS);
-        public static final AxeItem GHOST_COPPER_AXE = new RegionalAxeItem((AxeItem)Items.DIAMOND_AXE, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS);
-        public static final AxeItem FREEZING_NETHERITE_AXE = new RegionalAxeItem((AxeItem)Items.NETHERITE_AXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-        public static final AxeItem SCORCHING_NETHERITE_AXE = new RegionalAxeItem((AxeItem)Items.NETHERITE_AXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
-        public static final AxeItem BLOOMING_NETHERITE_AXE = new RegionalAxeItem((AxeItem)Items.NETHERITE_AXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+        public static final AxeItem ROSE_GOLD_AXE = new RegionalAxeItem((AxeItem)Items.DIAMOND_AXE, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+        public static final AxeItem AMBER_IRON_AXE = new RegionalAxeItem((AxeItem)Items.DIAMOND_AXE, new Item.Settings(),false,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS);
+        public static final AxeItem GHOST_COPPER_AXE = new RegionalAxeItem((AxeItem)Items.DIAMOND_AXE, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS);
+        public static final AxeItem FREEZING_NETHERITE_AXE = new RegionalAxeItem((AxeItem)Items.NETHERITE_AXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, null);
+        public static final AxeItem SCORCHING_NETHERITE_AXE = new RegionalAxeItem((AxeItem)Items.NETHERITE_AXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.AGGRESSION_VITA, null);
+        public static final AxeItem BLOOMING_NETHERITE_AXE = new RegionalAxeItem((AxeItem)Items.NETHERITE_AXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, null);
 
-        public static final HoeItem ROSE_GOLD_HOE = new RegionalHoeItem((HoeItem)Items.DIAMOND_HOE, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-        public static final HoeItem AMBER_IRON_HOE = new RegionalHoeItem((HoeItem)Items.DIAMOND_HOE, new Item.Settings(),false,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS);
-        public static final HoeItem GHOST_COPPER_HOE = new RegionalHoeItem((HoeItem)Items.DIAMOND_HOE, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS);
-        public static final HoeItem FREEZING_NETHERITE_HOE = new RegionalHoeItem((HoeItem)Items.NETHERITE_HOE, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-        public static final HoeItem SCORCHING_NETHERITE_HOE = new RegionalHoeItem((HoeItem)Items.NETHERITE_HOE, new Item.Settings().fireproof(),true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
-        public static final HoeItem BLOOMING_NETHERITE_HOE = new RegionalHoeItem((HoeItem)Items.NETHERITE_HOE, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+        public static final HoeItem ROSE_GOLD_HOE = new RegionalHoeItem((HoeItem)Items.DIAMOND_HOE, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+        public static final HoeItem AMBER_IRON_HOE = new RegionalHoeItem((HoeItem)Items.DIAMOND_HOE, new Item.Settings(),false,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS);
+        public static final HoeItem GHOST_COPPER_HOE = new RegionalHoeItem((HoeItem)Items.DIAMOND_HOE, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS);
+        public static final HoeItem FREEZING_NETHERITE_HOE = new RegionalHoeItem((HoeItem)Items.NETHERITE_HOE, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, null);
+        public static final HoeItem SCORCHING_NETHERITE_HOE = new RegionalHoeItem((HoeItem)Items.NETHERITE_HOE, new Item.Settings().fireproof(),true,RegionalStatusEffects.AGGRESSION_VITA, null);
+        public static final HoeItem BLOOMING_NETHERITE_HOE = new RegionalHoeItem((HoeItem)Items.NETHERITE_HOE, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, null);
 
-        public static final PickaxeItem ROSE_GOLD_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.DIAMOND_PICKAXE, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-        public static final PickaxeItem AMBER_IRON_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.DIAMOND_PICKAXE, new Item.Settings(),false,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS);
-        public static final PickaxeItem GHOST_COPPER_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.DIAMOND_PICKAXE, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS);
-        public static final PickaxeItem FREEZING_NETHERITE_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.NETHERITE_PICKAXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-        public static final PickaxeItem SCORCHING_NETHERITE_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.NETHERITE_PICKAXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
-        public static final PickaxeItem BLOOMING_NETHERITE_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.NETHERITE_PICKAXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+        public static final PickaxeItem ROSE_GOLD_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.DIAMOND_PICKAXE, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+        public static final PickaxeItem AMBER_IRON_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.DIAMOND_PICKAXE, new Item.Settings(),false,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS);
+        public static final PickaxeItem GHOST_COPPER_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.DIAMOND_PICKAXE, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS);
+        public static final PickaxeItem FREEZING_NETHERITE_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.NETHERITE_PICKAXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, null);
+        public static final PickaxeItem SCORCHING_NETHERITE_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.NETHERITE_PICKAXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.AGGRESSION_VITA, null);
+        public static final PickaxeItem BLOOMING_NETHERITE_PICKAXE = new RegionalPickaxeItem((PickaxeItem)Items.NETHERITE_PICKAXE, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, null);
 
-        public static final ShovelItem ROSE_GOLD_SHOVEL = new RegionalShovelItem((ShovelItem)Items.DIAMOND_SHOVEL, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-        public static final ShovelItem AMBER_IRON_SHOVEL = new RegionalShovelItem((ShovelItem)Items.DIAMOND_SHOVEL, new Item.Settings(),false,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS);
-        public static final ShovelItem GHOST_COPPER_SHOVEL = new RegionalShovelItem((ShovelItem)Items.DIAMOND_SHOVEL, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS);
-        public static final ShovelItem FREEZING_NETHERITE_SHOVEL = new RegionalShovelItem((ShovelItem)Items.NETHERITE_SHOVEL, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-        public static final ShovelItem SCORCHING_NETHERITE_SHOVEL = new RegionalShovelItem((ShovelItem)Items.NETHERITE_SHOVEL, new Item.Settings().fireproof(),true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
-        public static final ShovelItem BLOOMING_NETHERITE_SHOVEL = new RegionalShovelItem((ShovelItem)Items.NETHERITE_SHOVEL, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+        public static final ShovelItem ROSE_GOLD_SHOVEL = new RegionalShovelItem((ShovelItem)Items.DIAMOND_SHOVEL, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+        public static final ShovelItem AMBER_IRON_SHOVEL = new RegionalShovelItem((ShovelItem)Items.DIAMOND_SHOVEL, new Item.Settings(),false,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS);
+        public static final ShovelItem GHOST_COPPER_SHOVEL = new RegionalShovelItem((ShovelItem)Items.DIAMOND_SHOVEL, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS);
+        public static final ShovelItem FREEZING_NETHERITE_SHOVEL = new RegionalShovelItem((ShovelItem)Items.NETHERITE_SHOVEL, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, null);
+        public static final ShovelItem SCORCHING_NETHERITE_SHOVEL = new RegionalShovelItem((ShovelItem)Items.NETHERITE_SHOVEL, new Item.Settings().fireproof(),true,RegionalStatusEffects.AGGRESSION_VITA, null);
+        public static final ShovelItem BLOOMING_NETHERITE_SHOVEL = new RegionalShovelItem((ShovelItem)Items.NETHERITE_SHOVEL, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, null);
 
-        public static final SwordItem ROSE_GOLD_SWORD = new RegionalSwordItem((SwordItem)Items.DIAMOND_SWORD, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-        public static final SwordItem AMBER_IRON_SWORD = new RegionalSwordItem((SwordItem)Items.DIAMOND_SWORD, new Item.Settings(),false,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS);
-        public static final SwordItem GHOST_COPPER_SWORD = new RegionalSwordItem((SwordItem)Items.DIAMOND_SWORD, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS);
-        public static final SwordItem FREEZING_NETHERITE_SWORD = new RegionalSwordItem((SwordItem)Items.NETHERITE_SWORD, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-        public static final SwordItem SCORCHING_NETHERITE_SWORD = new RegionalSwordItem((SwordItem)Items.NETHERITE_SWORD, new Item.Settings().fireproof(),true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
-        public static final SwordItem BLOOMING_NETHERITE_SWORD = new RegionalSwordItem((SwordItem)Items.NETHERITE_SWORD, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+        public static final SwordItem ROSE_GOLD_SWORD = new RegionalSwordItem((SwordItem)Items.DIAMOND_SWORD, new Item.Settings(),false,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+        public static final SwordItem AMBER_IRON_SWORD = new RegionalSwordItem((SwordItem)Items.DIAMOND_SWORD, new Item.Settings(),false,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS);
+        public static final SwordItem GHOST_COPPER_SWORD = new RegionalSwordItem((SwordItem)Items.DIAMOND_SWORD, new Item.Settings(),false,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS);
+        public static final SwordItem FREEZING_NETHERITE_SWORD = new RegionalSwordItem((SwordItem)Items.NETHERITE_SWORD, new Item.Settings().fireproof(),true,RegionalStatusEffects.SPEED_VITA, null);
+        public static final SwordItem SCORCHING_NETHERITE_SWORD = new RegionalSwordItem((SwordItem)Items.NETHERITE_SWORD, new Item.Settings().fireproof(),true,RegionalStatusEffects.AGGRESSION_VITA, null);
+        public static final SwordItem BLOOMING_NETHERITE_SWORD = new RegionalSwordItem((SwordItem)Items.NETHERITE_SWORD, new Item.Settings().fireproof(),true,RegionalStatusEffects.RESITANCE_VITA, null);
 
 
         public static void registerTools() {

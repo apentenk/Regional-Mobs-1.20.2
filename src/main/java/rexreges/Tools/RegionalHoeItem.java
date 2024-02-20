@@ -16,7 +16,7 @@ public class RegionalHoeItem extends HoeItem{
 
 
     public RegionalHoeItem(HoeItem base, Settings settings, boolean upgrade, StatusEffect bonusOne, StatusEffect bonusTwo) {
-        super(base.getMaterial(), (int)base.getAttackDamage(), 0, settings);
+        super(base.getMaterial(), (int)(base.getAttackDamage() - base.getMaterial().getAttackDamage()), 0, settings);
         this.upgrade = upgrade;
         this.bonusOne = bonusOne;
         this.bonusTwo = bonusTwo;
@@ -25,7 +25,7 @@ public class RegionalHoeItem extends HoeItem{
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 1);
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
         } else {
             RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
         }
@@ -35,8 +35,8 @@ public class RegionalHoeItem extends HoeItem{
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean hit = super.postHit(stack, target, attacker);
-        if (hit && upgrade) {
-            RegionalToolItem.critBonus(attacker, bonusTwo);
+        if (hit && upgrade && RegionalToolItem.isCritial(attacker)) {
+            RegionalToolItem.critBonus(attacker, bonusOne);
         }
         return hit;
     }
@@ -45,7 +45,7 @@ public class RegionalHoeItem extends HoeItem{
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         boolean mine = super.postMine(stack, world, state, pos, miner);
         if (mine && upgrade) {
-            RegionalToolItem.critBonus(miner, bonusTwo);
+            RegionalToolItem.critBonus(miner, bonusOne);
         }
         return mine;
     }

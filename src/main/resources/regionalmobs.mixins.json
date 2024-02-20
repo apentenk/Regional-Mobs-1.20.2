@@ -3,7 +3,13 @@
 	"package": "rexreges.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"BrewingRecipeRegistryMixin",
+		"CrossbowAccessor",
+		"LivingEntityAccessor",
+		"ItemStackClassificationMixin",
+		"AggressionMixin",
+		"SubmissionMixin",
+		"HasteMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

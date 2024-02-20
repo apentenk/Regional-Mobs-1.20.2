@@ -10,20 +10,15 @@ import net.minecraft.world.World;
 public class RegionalToolItem {
 
     public static void critBonus(LivingEntity entity, StatusEffect bonusOne) {
-        if (isCritial(entity)) {
-            if (bonusOne.equals(StatusEffects.SATURATION)) {
-                entity.addStatusEffect(new StatusEffectInstance(bonusOne));
-            } else {
-                updateToolBonus(entity, bonusOne, 0, true);
-            }
-        }
+        entity.addStatusEffect(new StatusEffectInstance(bonusOne, 100, 1, false, true, true));
     }
 
-    public static void updateToolBonus(World world, Entity entity, boolean selected, StatusEffect bonusOne, int amplifier) {
+    public static void updateToolBonus(World world, Entity entity, boolean selected, StatusEffect bonusOne,
+            int amplifier) {
         if (!world.isClient()) {
             if (entity instanceof LivingEntity && selected) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                updateToolBonus(livingEntity, bonusOne, amplifier, false);
+                addBonusEffect(livingEntity, bonusOne, amplifier, false);
             }
         }
     }
@@ -33,19 +28,20 @@ public class RegionalToolItem {
         if (!world.isClient()) {
             if (entity instanceof LivingEntity && selected) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                updateToolBonus(livingEntity, bonusOne, bonusTwo, amplifier);
+                addBonusEffects(livingEntity, bonusOne, bonusTwo, amplifier);
             }
         }
     }
 
-    public static void updateToolBonus(LivingEntity livingEntity, StatusEffect bonusOne, int amplifier, boolean crit) {
+    public static void addBonusEffect(LivingEntity livingEntity, StatusEffect bonusOne, int amplifier,
+            boolean particles) {
         if (!livingEntity.hasStatusEffect(bonusOne)
                 || livingEntity.getStatusEffect(bonusOne).isDurationBelow(220)) {
-            livingEntity.addStatusEffect(new StatusEffectInstance(bonusOne, 260, amplifier, false, crit, true));
+            livingEntity.addStatusEffect(new StatusEffectInstance(bonusOne, 260, amplifier, false, particles, true));
         }
     }
 
-    public static void updateToolBonus(LivingEntity livingEntity, StatusEffect bonusOne, StatusEffect bonusTwo,
+    public static void addBonusEffects(LivingEntity livingEntity, StatusEffect bonusOne, StatusEffect bonusTwo,
             int amplifier) {
         if (!livingEntity.hasStatusEffect(bonusOne)
                 || livingEntity.getStatusEffect(bonusOne).isDurationBelow(220)) {

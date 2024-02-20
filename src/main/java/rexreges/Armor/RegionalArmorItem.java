@@ -12,24 +12,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class RegionalArmorItem extends ArmorItem {
-    private final int amplifier;
     private final StatusEffect setBonusOne;
     private final StatusEffect setBonusTwo;
     private final Ingredient repair;
     private final Item base;
 
-    public RegionalArmorItem(ArmorMaterial material, Type type, Item base, boolean upgrade, StatusEffect bonusOne, StatusEffect bonusTwo,
+    public RegionalArmorItem(RegionalArmorMaterial material, Type type, boolean upgrade, StatusEffect bonusOne,
+            StatusEffect bonusTwo,
             Settings settings) {
         super(material, type, settings);
-        if(upgrade){
-            this.repair = material.getRepairIngredient();
-            this.amplifier = 4;
-        }
-        else{
-            this.repair = Ingredient.ofItems(base);
-            this.amplifier = 2;
-        }
-        this.base = base;
+        this.repair = material.getRepairIngredient();
+        this.base = material.getBase();
         this.setBonusOne = bonusOne;
         this.setBonusTwo = bonusTwo;
     }
@@ -47,13 +40,13 @@ public class RegionalArmorItem extends ArmorItem {
                 if (isWearingMatchingSet(livingEntity)) {
                     if (!livingEntity.hasStatusEffect(setBonusOne)
                             || livingEntity.getStatusEffect(setBonusOne).isDurationBelow(220)) {
-                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusOne, 260, amplifier, false, false, true));
-                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusTwo, 260, amplifier, false, false, true));
+                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusOne, 260, 0, false, false, true));
+                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusTwo, 260, 0, false, false, true));
                     }
                     if (!livingEntity.hasStatusEffect(setBonusTwo)
                             || livingEntity.getStatusEffect(setBonusTwo).isDurationBelow(220)) {
-                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusOne, 260, amplifier, false, false, true));
-                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusTwo, 260, amplifier, false, false, true));
+                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusOne, 260, 0, false, false, true));
+                        livingEntity.addStatusEffect(new StatusEffectInstance(setBonusTwo, 260, 0, false, false, true));
                     }
                 }
             }
@@ -69,12 +62,10 @@ public class RegionalArmorItem extends ArmorItem {
             ArmorItem armor = ((ArmorItem) stack.getItem());
             ArmorMaterial armorMaterial = armor.getMaterial();
 
-            if (armorMaterial instanceof ElytraArmorMaterial) {
-                if (((ElytraArmorMaterial)armorMaterial).getBase() != (this.base)) {
+            if (armorMaterial instanceof RegionalArmorMaterial) {
+                if (((RegionalArmorMaterial) armorMaterial).getBase() != (this.base)) {
                     return false;
                 }
-            } else if (!armor.getMaterial().equals(this.material)) {
-                return false;
             }
         }
         return true;

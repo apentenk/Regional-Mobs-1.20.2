@@ -18,12 +18,12 @@ public class RegionalWeapons {
     public static final RegionalBow DIAMOND_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f, new Item.Settings());
     public static final RegionalBow NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, new Item.Settings());
 
-    public static final RegionalBow ROSE_GOLD_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.ROSE_GOLD_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-    public static final RegionalBow AMBER_IRON_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.AMBER_IRON_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS); 
-    public static final RegionalBow GHOST_COPPER_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.GHOST_COPPER_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS); 
+    public static final RegionalBow ROSE_GOLD_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.ROSE_GOLD_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+    public static final RegionalBow AMBER_IRON_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.AMBER_IRON_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS); 
+    public static final RegionalBow GHOST_COPPER_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.GHOST_COPPER_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS); 
 
     public static final RegionalBow FREEZING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(),true, false, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-    public static final RegionalBow SCORCHING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
+    public static final RegionalBow SCORCHING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.STRENGTH_VITA);
     public static final RegionalBow BLOOMING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
 
 
@@ -32,27 +32,27 @@ public class RegionalWeapons {
     public static final RegionalCrossbow DIAMOND_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f, new Item.Settings());
     public static final RegionalCrossbow NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, new Item.Settings());
 
-    public static final RegionalCrossbow ROSE_GOLD_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.ROSE_GOLD_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-    public static final RegionalCrossbow AMBER_IRON_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.AMBER_IRON_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS); 
-    public static final RegionalCrossbow GHOST_COPPER_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.GHOST_COPPER_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS); 
+    public static final RegionalCrossbow ROSE_GOLD_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.ROSE_GOLD_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+    public static final RegionalCrossbow AMBER_IRON_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.AMBER_IRON_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS); 
+    public static final RegionalCrossbow GHOST_COPPER_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.GHOST_COPPER_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS); 
     
     public static final RegionalCrossbow FREEZING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(),true, false, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-    public static final RegionalCrossbow SCORCHING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
+    public static final RegionalCrossbow SCORCHING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.STRENGTH_VITA);
     public static final RegionalCrossbow BLOOMING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
     
     public static final RegionalTrident PRISMARINE_TRIDENT = new RegionalTrident(ToolMaterials.STONE, -2.9f, "prismarine_trident", RegionalTridentEntityTypes.PrismarineTridentEntityType);
     public static final RegionalTrident IRON_TRIDENT = new RegionalTrident(ToolMaterials.IRON, -2.9f, "iron_trident", RegionalTridentEntityTypes.IronTridentEntityType);
     public static final RegionalTrident DIAMOND_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.9f, "diamond_trident", RegionalTridentEntityTypes.DiamondTridentEntityType);
 
-    public static final RegionalTrident ROSE_GOLD_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.79f, Ingredient.ofItems(RegionalItems.ROSE_GOLD_INGOT), "rose_gold_trident", RegionalTridentEntityTypes.RoseGoldTridentEntityType,false, true, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VULNERABLE_MORS);
-    public static final RegionalTrident AMBER_IRON_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.79f, Ingredient.ofItems(RegionalItems.AMBER_IRON_INGOT), "iron_amber_trident", RegionalTridentEntityTypes.RoseGoldTridentEntityType,false, true, RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.SLOWNESS_MORS);
-    public static final RegionalTrident GHOST_COPPER_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.79f, Ingredient.ofItems(RegionalItems.GHOST_COPPER_INGOT), "ghost_copper_trident", RegionalTridentEntityTypes.RoseGoldTridentEntityType,false, true, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS);
+    public static final RegionalTrident ROSE_GOLD_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.79f, Ingredient.ofItems(RegionalItems.ROSE_GOLD_INGOT), "rose_gold_trident", RegionalTridentEntityTypes.RoseGoldTridentEntityType,false, true, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.SUBMISSION_MORS);
+    public static final RegionalTrident AMBER_IRON_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.79f, Ingredient.ofItems(RegionalItems.AMBER_IRON_INGOT), "amber_iron_trident", RegionalTridentEntityTypes.AmberIronTridentEntityType,false, true, RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS);
+    public static final RegionalTrident GHOST_COPPER_TRIDENT = new RegionalTrident(ToolMaterials.DIAMOND, -2.79f, Ingredient.ofItems(RegionalItems.GHOST_COPPER_INGOT), "ghost_copper_trident", RegionalTridentEntityTypes.GhostCopperTridentEntityType,false, true, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS);
 
 
     public static final RegionalTrident NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, "netherite_trident", RegionalTridentEntityTypes.NetheriteTridentEntityType);
-    public static final RegionalTrident FREEZING_NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, Ingredient.ofItems(Items.NETHERITE_INGOT), "freezing_netherite_trident", RegionalTridentEntityTypes.FreezingNetheriteTridentEntityType,false, true, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
-    public static final RegionalTrident SCORCHING_NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, Ingredient.ofItems(Items.NETHERITE_INGOT), "scorching_netherite_trident", RegionalTridentEntityTypes.ScorchingNetheriteTridentEntityType,false, true, RegionalStatusEffects.BRUTAL_VITA, RegionalStatusEffects.REACH_VITA);
-    public static final RegionalTrident BLOOMING_NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, Ingredient.ofItems(Items.NETHERITE_INGOT), "blooming_netherite_trident", RegionalTridentEntityTypes.BloomingNetheriteTridentEntityType,false, true, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+    public static final RegionalTrident FREEZING_NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, Ingredient.ofItems(Items.NETHERITE_INGOT), "freezing_netherite_trident", RegionalTridentEntityTypes.FreezingNetheriteTridentEntityType,true, false, RegionalStatusEffects.SPEED_VITA,null);
+    public static final RegionalTrident SCORCHING_NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, Ingredient.ofItems(Items.NETHERITE_INGOT), "scorching_netherite_trident", RegionalTridentEntityTypes.ScorchingNetheriteTridentEntityType,true, false, RegionalStatusEffects.AGGRESSION_VITA, null);
+    public static final RegionalTrident BLOOMING_NETHERITE_TRIDENT = new RegionalTrident(ToolMaterials.NETHERITE, -2.9f, Ingredient.ofItems(Items.NETHERITE_INGOT), "blooming_netherite_trident", RegionalTridentEntityTypes.BloomingNetheriteTridentEntityType,true, false, RegionalStatusEffects.RESITANCE_VITA, null);
 
                     
     public static void registerRangedWeapons() {

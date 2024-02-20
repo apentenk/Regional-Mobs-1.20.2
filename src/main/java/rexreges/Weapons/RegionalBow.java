@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
@@ -26,6 +27,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import rexreges.RegionalMobs;
+import rexreges.Tools.RegionalToolItem;
 
 public class RegionalBow extends BowItem {
     private final float damage;
@@ -72,6 +74,16 @@ public class RegionalBow extends BowItem {
         return damage;
     }
 
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (upgrade) {
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
+        } else {
+            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
+        }
+        super.inventoryTick(stack, world, entity, slot, selected);
+    }
+
     public float progress(int useTicks, ItemStack stack, LivingEntity user) {
         if (user.hasStatusEffect(StatusEffects.HASTE)) {
             return ((float) useTicks) / 10.0F;
@@ -85,7 +97,6 @@ public class RegionalBow extends BowItem {
         if (f > 1.0F) {
             f = 1.0F;
         }
-
         return f;
     }
 
@@ -153,7 +164,7 @@ public class RegionalBow extends BowItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable(""));
         tooltip.add(Text.translatable("Fired Arrow:").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable(RegionalMobs.formatNumberToolTip(this.damage * 3) + " Damage")
+        tooltip.add(Text.translatable(RegionalMobs.formatNumberToolTip(this.damage * 4) + " Damage")
                 .formatted(Formatting.DARK_GREEN));
         super.appendTooltip(stack, world, tooltip, context);
     }

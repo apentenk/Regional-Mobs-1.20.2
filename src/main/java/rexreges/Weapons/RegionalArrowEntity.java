@@ -61,11 +61,11 @@ public class RegionalArrowEntity extends ArrowEntity {
             }
             if (upgrade) {
                 if (this.crit) {
-                    RegionalToolItem.critBonus(attacker, bonusTwo);
+                    RegionalToolItem.critBonus(attacker, bonusOne);
                 }
-                RegionalToolItem.updateToolBonus(attacker, bonusOne, 1, true);
+                RegionalToolItem.addBonusEffect(attacker, bonusOne, 0, false);
             } else if(this.alloy) {
-                RegionalToolItem.updateToolBonus(attacker, bonusOne, bonusTwo, 0);
+                RegionalToolItem.addBonusEffects(attacker, bonusOne, bonusTwo, 0);
             }
         }
     }

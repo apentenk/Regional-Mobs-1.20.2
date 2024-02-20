@@ -2,7 +2,6 @@ package rexreges.Armor;
 
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterials;
@@ -12,88 +11,87 @@ import rexreges.Items.RegionalItems;
 import rexreges.StatusEffects.RegionalStatusEffects;
 
 public class RegionalArmor {
-        public static final Item ROSE_GOLD_HELMET = new RegionalArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET,
-                        RegionalItems.ROSE_GOLD_INGOT, false, RegionalStatusEffects.SPEED_VITA,
-                        RegionalStatusEffects.VULNERABLE_MORS, new Item.Settings());
-        public static final Item ROSE_GOLD_CHESTPLATE = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.CHESTPLATE,
+        public static final Item ROSE_GOLD_HELMET = new RegionalArmorItem(RegionalArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.HELMET, false, StatusEffects.SPEED,
+                        RegionalStatusEffects.SUBMISSION, new Item.Settings());
+        public static final Item ROSE_GOLD_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
                         new Item.Settings());
-        public static final Item ROSE_GOLD_LEGGINGS = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.LEGGINGS,
+        public static final Item ROSE_GOLD_LEGGINGS = new ArmorItem(RegionalArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
                         new Item.Settings());
-        public static final Item ROSE_GOLD_BOOTS = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.BOOTS,
-                        new Item.Settings());
-
-        public static final Item AMBER_IRON_HELMET = new RegionalArmorItem(ArmorMaterials.DIAMOND,
-                        ArmorItem.Type.HELMET, RegionalItems.AMBER_IRON_INGOT, false, RegionalStatusEffects.BRUTAL_VITA,
-                        RegionalStatusEffects.SLOWNESS_MORS, new Item.Settings());
-        public static final Item AMBER_IRON_CHESTPLATE = new ArmorItem(ArmorMaterials.DIAMOND,
-                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item AMBER_IRON_LEGGINGS = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.LEGGINGS,
-                        new Item.Settings());
-        public static final Item AMBER_IRON_BOOTS = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.BOOTS,
+        public static final Item ROSE_GOLD_BOOTS = new ArmorItem(RegionalArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                         new Item.Settings());
 
-        public static final Item GHOST_COPPER_HELMET = new RegionalArmorItem(ArmorMaterials.DIAMOND,
-                        ArmorItem.Type.HELMET, RegionalItems.GHOST_COPPER_INGOT, false,
-                        RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.GENTLE_MORS, new Item.Settings());
-        public static final Item GHOST_COPPER_CHESTPLATE = new ArmorItem(ArmorMaterials.DIAMOND,
+        public static final Item AMBER_IRON_HELMET = new RegionalArmorItem(RegionalArmorMaterial.AMBER_IRON_ARMOR_MATERIAL,
+                        ArmorItem.Type.HELMET, false, RegionalStatusEffects.AGGRESSION,
+                        StatusEffects.SLOWNESS, new Item.Settings());
+        public static final Item AMBER_IRON_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.AMBER_IRON_ARMOR_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item GHOST_COPPER_LEGGINGS = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.LEGGINGS,
+        public static final Item AMBER_IRON_LEGGINGS = new ArmorItem(RegionalArmorMaterial.AMBER_IRON_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
                         new Item.Settings());
-        public static final Item GHOST_COPPER_BOOTS = new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.BOOTS,
+        public static final Item AMBER_IRON_BOOTS = new ArmorItem(RegionalArmorMaterial.AMBER_IRON_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                         new Item.Settings());
 
-        public static final Item FREEZING_NETHERITE_HELMET = new RegionalArmorItem(ArmorMaterials.NETHERITE,
-                        ArmorItem.Type.HELMET, RegionalItems.FREEZING_TOTEM, true, RegionalStatusEffects.SPEED_VITA,
-                        RegionalStatusEffects.VULNERABLE_MORS, new Item.Settings());
-        public static final Item FREEZING_NETHERITE_CHESTPLATE = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item GHOST_COPPER_HELMET = new RegionalArmorItem(RegionalArmorMaterial.GHOST_COPPER_ARMOR_MATERIAL,
+                        ArmorItem.Type.HELMET, false,
+                        StatusEffects.RESISTANCE, RegionalStatusEffects.KINDNESS, new Item.Settings());
+        public static final Item GHOST_COPPER_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.GHOST_COPPER_ARMOR_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item FREEZING_NETHERITE_LEGGINGS = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item GHOST_COPPER_LEGGINGS = new ArmorItem(RegionalArmorMaterial.GHOST_COPPER_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                        new Item.Settings());
+        public static final Item GHOST_COPPER_BOOTS = new ArmorItem(RegionalArmorMaterial.GHOST_COPPER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                        new Item.Settings());
+
+        public static final Item FREEZING_NETHERITE_HELMET = new RegionalArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
+                        ArmorItem.Type.HELMET, true, StatusEffects.SPEED,
+                        StatusEffects.HASTE, new Item.Settings());
+        public static final Item FREEZING_NETHERITE_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
+                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
+        public static final Item FREEZING_NETHERITE_LEGGINGS = new ArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
                         ArmorItem.Type.LEGGINGS, new Item.Settings());
-        public static final Item FREEZING_NETHERITE_BOOTS = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item FREEZING_NETHERITE_BOOTS = new ArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
                         ArmorItem.Type.BOOTS, new Item.Settings());
 
-        public static final Item SCORCHING_NETHERITE_HELMET = new RegionalArmorItem(ArmorMaterials.NETHERITE,
-                        ArmorItem.Type.HELMET, RegionalItems.SCHORCHING_TOTEM, true, RegionalStatusEffects.BRUTAL_VITA,
-                        RegionalStatusEffects.REACH, new Item.Settings());
-        public static final Item SCORCHING_NETHERITE_CHESTPLATE = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item SCORCHING_NETHERITE_HELMET = new RegionalArmorItem(RegionalArmorMaterial.SCORCHING_ARMOR_MATERIAL,
+                        ArmorItem.Type.HELMET, true, RegionalStatusEffects.AGGRESSION,
+                        StatusEffects.STRENGTH, new Item.Settings());
+        public static final Item SCORCHING_NETHERITE_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.SCORCHING_ARMOR_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item SCORCHING_NETHERITE_LEGGINGS = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item SCORCHING_NETHERITE_LEGGINGS = new ArmorItem(RegionalArmorMaterial.SCORCHING_ARMOR_MATERIAL,
                         ArmorItem.Type.LEGGINGS, new Item.Settings());
-        public static final Item SCORCHING_NETHERITE_BOOTS = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item SCORCHING_NETHERITE_BOOTS = new ArmorItem(RegionalArmorMaterial.SCORCHING_ARMOR_MATERIAL,
                         ArmorItem.Type.BOOTS, new Item.Settings());
 
-        public static final Item BLOOMING_NETHERITE_HELMET = new RegionalArmorItem(ArmorMaterials.NETHERITE,
-                        ArmorItem.Type.HELMET, RegionalItems.BLOOMING_TOTEM, true, RegionalStatusEffects.RESITANCE_VITA,
-                        StatusEffects.SATURATION, new Item.Settings());
-        public static final Item BLOOMING_NETHERITE_CHESTPLATE = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item BLOOMING_NETHERITE_HELMET = new RegionalArmorItem(RegionalArmorMaterial.BLOOMING_ARMOR_MATERIAL,
+                        ArmorItem.Type.HELMET, true, StatusEffects.RESISTANCE,
+                        StatusEffects.ABSORPTION, new Item.Settings());
+        public static final Item BLOOMING_NETHERITE_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.BLOOMING_ARMOR_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item BLOOMING_NETHERITE_LEGGINGS = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item BLOOMING_NETHERITE_LEGGINGS = new ArmorItem(RegionalArmorMaterial.BLOOMING_ARMOR_MATERIAL,
                         ArmorItem.Type.LEGGINGS, new Item.Settings());
-        public static final Item BLOOMING_NETHERITE_BOOTS = new ArmorItem(ArmorMaterials.NETHERITE,
+        public static final Item BLOOMING_NETHERITE_BOOTS = new ArmorItem(RegionalArmorMaterial.BLOOMING_ARMOR_MATERIAL,
                         ArmorItem.Type.BOOTS, new Item.Settings());
 
-        public static final Item LEATHER_ELYTRA = new ArmorItem(ElytraArmorMaterial.LEATHER_ELYTRA_ARMOR_MATERIAL,
+        public static final Item LEATHER_ELYTRA = new ArmorItem(RegionalArmorMaterial.LEATHER_ELYTRA_ARMOR_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item IRON_ELYTRA = new ArmorItem(ElytraArmorMaterial.IRON_ELYTRA_MATERIAL,
+        public static final Item IRON_ELYTRA = new ArmorItem(RegionalArmorMaterial.IRON_ELYTRA_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item DIAMOND_ELYTRA = new ArmorItem(ElytraArmorMaterial.DIAMOND_ELYTRA_MATERIAL,
+        public static final Item DIAMOND_ELYTRA = new ArmorItem(RegionalArmorMaterial.DIAMOND_ELYTRA_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item NETHERITE_ELYTRA = new ArmorItem(ElytraArmorMaterial.NETHERITE_ELYTRA_MATERIAL,
-                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
-
-        public static final Item ROSE_GOLD_ELYTRA = new ArmorItem(ElytraArmorMaterial.ROSE_GOLD_ELYTRA_MATERIAL,
-                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item AMBER_IRON_ELYTRA = new ArmorItem(ElytraArmorMaterial.AMBER_IRON_ELYTRA_MATERIAL,
-                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item GHOST_COPPER_ELYTRA = new ArmorItem(ElytraArmorMaterial.GHOST_COPPER_ELYTRA_MATERIAL,
+        public static final Item NETHERITE_ELYTRA = new ArmorItem(RegionalArmorMaterial.NETHERITE_ELYTRA_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
 
-        public static final Item FREEZING_NETHERITE_ELYTRA = new ArmorItem(ElytraArmorMaterial.FREEZING_ELYTRA_MATERIAL,
+        public static final Item ROSE_GOLD_ELYTRA = new ArmorItem(RegionalArmorMaterial.ROSE_GOLD_ELYTRA_MATERIAL,
+                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
+        public static final Item AMBER_IRON_ELYTRA = new ArmorItem(RegionalArmorMaterial.AMBER_IRON_ELYTRA_MATERIAL,
+                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
+        public static final Item GHOST_COPPER_ELYTRA = new ArmorItem(RegionalArmorMaterial.GHOST_COPPER_ELYTRA_MATERIAL,
+                        ArmorItem.Type.CHESTPLATE, new Item.Settings());
+
+        public static final Item FREEZING_NETHERITE_ELYTRA = new ArmorItem(RegionalArmorMaterial.FREEZING_ELYTRA_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
         public static final Item SCORCHING_NETHERITE_ELYTRA = new ArmorItem(
-                        ElytraArmorMaterial.SCORCHING_ELYTRA_MATERIAL,
+                        RegionalArmorMaterial.SCORCHING_ELYTRA_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
-        public static final Item BLOOMING_NETHERITE_ELYTRA = new ArmorItem(ElytraArmorMaterial.BLOOMING_ELYTRA_MATERIAL,
+        public static final Item BLOOMING_NETHERITE_ELYTRA = new ArmorItem(RegionalArmorMaterial.BLOOMING_ELYTRA_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
 
         public static final RegionalShield WOOD_SHIELD = new RegionalShield(ToolMaterials.WOOD, "wood_shield",
@@ -111,22 +109,22 @@ public class RegionalArmor {
                         RegionalStatusEffects.DEPLETION_MORS);
         public static final RegionalShield AMBER_IRON_SHIELD = new RegionalShield(ToolMaterials.DIAMOND,
                         Ingredient.ofItems(RegionalItems.AMBER_IRON_INGOT), "amber_iron_shield",
-                        new Item.Settings(), false, RegionalStatusEffects.REACH_VITA,
+                        new Item.Settings(), false, RegionalStatusEffects.STRENGTH_VITA,
                         RegionalStatusEffects.FATIGUE_MORS);
         public static final RegionalShield GHOST_COPPER_SHIELD = new RegionalShield(ToolMaterials.DIAMOND,
                         Ingredient.ofItems(RegionalItems.GHOST_COPPER_INGOT), "ghost_copper_shield",
                         new Item.Settings(), false, RegionalStatusEffects.ABSORPTION_VITA,
-                        RegionalStatusEffects.DEPLETION_MORS);
+                        RegionalStatusEffects.WEAKNESS_MORS);
 
         public static final RegionalShield FREEZING_NETHERITE_SHIELD = new RegionalShield(ToolMaterials.NETHERITE,
                         Ingredient.ofItems(Items.NETHERITE_INGOT), "freezing_netherite_shield",
-                        new Item.Settings(), true, RegionalStatusEffects.HASTE_VITA, RegionalStatusEffects.SPEED_VITA);
+                        new Item.Settings(), true, RegionalStatusEffects.HASTE_VITA, RegionalStatusEffects.HASTE_VITA);
         public static final RegionalShield SCORCHING_NETHERITE_SHIELD = new RegionalShield(ToolMaterials.NETHERITE,
                         Ingredient.ofItems(Items.NETHERITE_INGOT), "scorching_netherite_shield",
-                        new Item.Settings(), true, RegionalStatusEffects.REACH_VITA, RegionalStatusEffects.BRUTAL_VITA);
+                        new Item.Settings(), true, RegionalStatusEffects.STRENGTH_VITA, RegionalStatusEffects.STRENGTH_VITA);
         public static final RegionalShield BLOOMING_NEHERITE_SHIELD = new RegionalShield(ToolMaterials.NETHERITE,
                         Ingredient.ofItems(Items.NETHERITE_INGOT), "blooming_netherite_shield",
-                        new Item.Settings(), true, RegionalStatusEffects.ABSORPTION_VITA, RegionalStatusEffects.RESITANCE_VITA);
+                        new Item.Settings(), true, RegionalStatusEffects.ABSORPTION_VITA, RegionalStatusEffects.ABSORPTION_VITA);
 
         public static void registerArmor() {
                 RegionalMobs.LOGGER.debug("Registering Armor for " + RegionalMobs.MOD_ID);
