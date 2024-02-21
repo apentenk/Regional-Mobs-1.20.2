@@ -7,7 +7,6 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
@@ -27,7 +26,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import rexreges.RegionalMobs;
-import rexreges.Tools.RegionalToolItem;
 
 public class RegionalBow extends BowItem {
     private final float damage;
@@ -72,16 +70,6 @@ public class RegionalBow extends BowItem {
 
     public float getDamage() {
         return damage;
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
-        } else {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
-        }
-        super.inventoryTick(stack, world, entity, slot, selected);
     }
 
     public float progress(int useTicks, ItemStack stack, LivingEntity user) {

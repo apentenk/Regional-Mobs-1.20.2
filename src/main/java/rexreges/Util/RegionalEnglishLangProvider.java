@@ -175,7 +175,7 @@ public class RegionalEnglishLangProvider extends FabricLanguageProvider{
         addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.DEPLETION_MORS);
         addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.FATIGUE);
         addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.FATIGUE_MORS);
-        addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.HASTE_VITA);
+        addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.VIGOR_VITA);
         addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.KINDNESS);
         addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.KINDNESS_MORS);
         addStatusToTranslationBuilder(translationBuilder, RegionalStatusEffects.RESITANCE_VITA);

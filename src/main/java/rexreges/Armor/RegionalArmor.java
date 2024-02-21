@@ -42,7 +42,7 @@ public class RegionalArmor {
 
         public static final Item FREEZING_NETHERITE_HELMET = new RegionalArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
                         ArmorItem.Type.HELMET, true, StatusEffects.SPEED,
-                        StatusEffects.HASTE, new Item.Settings());
+                        RegionalStatusEffects.VIGOR, new Item.Settings());
         public static final Item FREEZING_NETHERITE_CHESTPLATE = new ArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
                         ArmorItem.Type.CHESTPLATE, new Item.Settings());
         public static final Item FREEZING_NETHERITE_LEGGINGS = new ArmorItem(RegionalArmorMaterial.FREEZING_ARMOR_MATERIAL,
@@ -105,26 +105,26 @@ public class RegionalArmor {
 
         public static final RegionalShield ROSE_GOLD_SHIELD = new RegionalShield(ToolMaterials.DIAMOND,
                         Ingredient.ofItems(RegionalItems.ROSE_GOLD_INGOT), "rose_gold_shield",
-                        new Item.Settings(), false, RegionalStatusEffects.HASTE_VITA,
+                        new Item.Settings(), false,true, RegionalStatusEffects.VIGOR_VITA,
                         RegionalStatusEffects.DEPLETION_MORS);
         public static final RegionalShield AMBER_IRON_SHIELD = new RegionalShield(ToolMaterials.DIAMOND,
                         Ingredient.ofItems(RegionalItems.AMBER_IRON_INGOT), "amber_iron_shield",
-                        new Item.Settings(), false, RegionalStatusEffects.STRENGTH_VITA,
+                        new Item.Settings(), false, true, RegionalStatusEffects.STRENGTH_VITA,
                         RegionalStatusEffects.FATIGUE_MORS);
         public static final RegionalShield GHOST_COPPER_SHIELD = new RegionalShield(ToolMaterials.DIAMOND,
                         Ingredient.ofItems(RegionalItems.GHOST_COPPER_INGOT), "ghost_copper_shield",
-                        new Item.Settings(), false, RegionalStatusEffects.ABSORPTION_VITA,
+                        new Item.Settings(), false, true, StatusEffects.SATURATION,
                         RegionalStatusEffects.WEAKNESS_MORS);
 
         public static final RegionalShield FREEZING_NETHERITE_SHIELD = new RegionalShield(ToolMaterials.NETHERITE,
                         Ingredient.ofItems(Items.NETHERITE_INGOT), "freezing_netherite_shield",
-                        new Item.Settings(), true, RegionalStatusEffects.HASTE_VITA, RegionalStatusEffects.HASTE_VITA);
+                        new Item.Settings(), true, false, RegionalStatusEffects.VIGOR_VITA, RegionalStatusEffects.VIGOR_VITA);
         public static final RegionalShield SCORCHING_NETHERITE_SHIELD = new RegionalShield(ToolMaterials.NETHERITE,
                         Ingredient.ofItems(Items.NETHERITE_INGOT), "scorching_netherite_shield",
-                        new Item.Settings(), true, RegionalStatusEffects.STRENGTH_VITA, RegionalStatusEffects.STRENGTH_VITA);
+                        new Item.Settings(), true, false, RegionalStatusEffects.STRENGTH_VITA, RegionalStatusEffects.STRENGTH_VITA);
         public static final RegionalShield BLOOMING_NEHERITE_SHIELD = new RegionalShield(ToolMaterials.NETHERITE,
                         Ingredient.ofItems(Items.NETHERITE_INGOT), "blooming_netherite_shield",
-                        new Item.Settings(), true, RegionalStatusEffects.ABSORPTION_VITA, RegionalStatusEffects.ABSORPTION_VITA);
+                        new Item.Settings(), true, false, RegionalStatusEffects.ABSORPTION_VITA, RegionalStatusEffects.ABSORPTION_VITA);
 
         public static void registerArmor() {
                 RegionalMobs.LOGGER.debug("Registering Armor for " + RegionalMobs.MOD_ID);

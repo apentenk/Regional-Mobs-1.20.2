@@ -10,7 +10,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.CrossbowUser;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
@@ -34,7 +33,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import rexreges.RegionalMobs;
 import rexreges.Enchantments.RegionalEnchantments;
-import rexreges.Tools.RegionalToolItem;
 import rexreges.mixin.CrossbowAccessor;
 
 public class RegionalCrossbow extends CrossbowItem{
@@ -84,16 +82,6 @@ public class RegionalCrossbow extends CrossbowItem{
 
     public float getDamage() {
         return damage;
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
-        } else {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
-        }
-        super.inventoryTick(stack, world, entity, slot, selected);
     }
 
     @Override

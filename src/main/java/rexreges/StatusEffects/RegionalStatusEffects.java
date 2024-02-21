@@ -36,6 +36,27 @@ public class RegionalStatusEffects {
         public static final StatusEffect KINDNESS_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL,
                         8018779);
 
+        public static final StatusEffect VIGOR = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 14270531)
+                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
+                                        "75ece810-bbe1-4a03-a1bd-99c9e3ab926e", 0.2,
+                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
+
+        public static final StatusEffect FATIGUE = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 4866583)
+                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
+                                        "83aff3a0-4a13-49bc-aa63-6157c8fad14b", -0.15,
+                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
+
+        public static final StatusEffect VIGOR_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL,
+                        14270531)
+                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
+                                        "42531d4b-9c05-4819-95bf-b32c3df6f0bf", 0.1,
+                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
+
+        public static final StatusEffect FATIGUE_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 4866583)
+                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
+                                        "4d23cf13-30aa-438e-b534-62570d9274da", -0.075,
+                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);;
+
         public static final StatusEffect SPEED_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL, 3402751)
                         .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,
                                         "dbacb420-9ee4-4680-9be3-d80eeae9b24a", 0.1f,
@@ -54,11 +75,6 @@ public class RegionalStatusEffects {
                         .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                                         "a09867cf-57f8-4040-8f87-256a83862b64", 1.5,
                                         EntityAttributeModifier.Operation.ADDITION);
-        public static final StatusEffect HASTE_VITA = new RegionalStatusEffect(StatusEffectCategory.BENEFICIAL,
-                        14270531)
-                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
-                                        "42531d4b-9c05-4819-95bf-b32c3df6f0bf", 0.05,
-                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
 
         public static final StatusEffect DEPLETION_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 7247)
                         .addAttributeModifier(EntityAttributes.GENERIC_MAX_HEALTH,
@@ -69,19 +85,11 @@ public class RegionalStatusEffects {
                         .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                                         "20ac74a9-b476-46da-bda3-cb0c0a25465b", -2.0,
                                         EntityAttributeModifier.Operation.ADDITION);
-        public static final StatusEffect FATIGUE_MORS = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 4866583)
-                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
-                                        "4d23cf13-30aa-438e-b534-62570d9274da", -0.05,
-                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);;
 
         public static final StatusEffect DEPLETION = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 7247)
                         .addAttributeModifier(EntityAttributes.GENERIC_MAX_HEALTH,
                                         "d665175f-2923-462d-bacd-94f5a951a9e4", -4.0,
                                         EntityAttributeModifier.Operation.ADDITION);
-        public static final StatusEffect FATIGUE = new RegionalStatusEffect(StatusEffectCategory.HARMFUL, 4866583)
-                        .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED,
-                                        "83aff3a0-4a13-49bc-aa63-6157c8fad14b", -0.1,
-                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
 
         public static final Potion RESISTANCE = new Potion(new StatusEffectInstance(StatusEffects.RESISTANCE, 3600));
         public static final Potion LONG_RESISTANCE = new Potion("resistance",
@@ -101,10 +109,10 @@ public class RegionalStatusEffects {
         public static final Potion LONG_KINDNESS = new Potion("kindness",
                         new StatusEffectInstance(KINDNESS, 4800));
 
-        public static final Potion HASTE = new Potion(new StatusEffectInstance(StatusEffects.HASTE, 3600));
-        public static final Potion LONG_HASTE = new Potion("haste",
+        public static final Potion VIGOR_POTION = new Potion(new StatusEffectInstance(StatusEffects.HASTE, 3600));
+        public static final Potion LONG_VIGOR = new Potion("haste",
                         new StatusEffectInstance(StatusEffects.HASTE, 9600));
-        public static final Potion STRONG_HASTE = new Potion("haste",
+        public static final Potion STRONG_VIGOR = new Potion("haste",
                         new StatusEffectInstance(StatusEffects.HASTE, 1800, 1));
 
         public static final StatusEffect LURKER_BLESSING = new CreeperBlessing(0, StatusEffects.SPEED);
@@ -133,19 +141,23 @@ public class RegionalStatusEffects {
                 RegionalMobs.registerEffect("aggression_vita", AGGRESSION_VITA);
                 RegionalMobs.registerEffect("kindness_mors", KINDNESS_MORS);
 
+                RegionalMobs.registerEffect("vigor", VIGOR);
+                RegionalMobs.registerEffect("fatigue", FATIGUE);
+
+                RegionalMobs.registerEffect("vigor_vita", VIGOR_VITA);
+                RegionalMobs.registerEffect("fatigue_mors", FATIGUE_MORS);
+
                 RegionalMobs.registerEffect("speed_vita", SPEED_VITA);
                 RegionalMobs.registerEffect("slowness_mors", SLOWNESS_MORS);
 
                 RegionalMobs.registerEffect("depletion", DEPLETION);
-                RegionalMobs.registerEffect("fatigue", FATIGUE);
 
                 RegionalMobs.registerEffect("absorption_vita", ABSORPTION_VITA);
                 RegionalMobs.registerEffect("strength_vita", STRENGTH_VITA);
-                RegionalMobs.registerEffect("haste_vita", HASTE_VITA);
-
+                
                 RegionalMobs.registerEffect("depletion_mors", DEPLETION_MORS);
                 RegionalMobs.registerEffect("weakness_mors", WEAKNESS_MORS);
-                RegionalMobs.registerEffect("fatigue_mors", FATIGUE_MORS);
+                
 
                 RegionalMobs.registerPotion("resistance", RESISTANCE);
                 RegionalMobs.registerPotion("long_resistance", LONG_RESISTANCE);
@@ -180,12 +192,12 @@ public class RegionalStatusEffects {
                 BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(KINDNESS_POTION, Items.REDSTONE,
                                 LONG_KINDNESS);
 
-                RegionalMobs.registerPotion("haste", HASTE);
-                RegionalMobs.registerPotion("long_haste", LONG_HASTE);
-                RegionalMobs.registerPotion("strong_haste", STRONG_HASTE);
+                RegionalMobs.registerPotion("vigor", VIGOR_POTION);
+                RegionalMobs.registerPotion("long_vigor", LONG_VIGOR);
+                RegionalMobs.registerPotion("strong_vigor", STRONG_VIGOR);
                 BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, RegionalItems.ARCTIC_SILK,
-                                HASTE);
-                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(HASTE, Items.REDSTONE, LONG_HASTE);
-                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(HASTE, Items.GLOWSTONE_DUST, STRONG_HASTE);
+                                VIGOR_POTION);
+                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(VIGOR_POTION, Items.REDSTONE, LONG_VIGOR);
+                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(VIGOR_POTION, Items.GLOWSTONE_DUST, STRONG_VIGOR);
         }
 }

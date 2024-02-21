@@ -22,7 +22,7 @@ public class RegionalWeapons {
     public static final RegionalBow AMBER_IRON_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.AMBER_IRON_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS); 
     public static final RegionalBow GHOST_COPPER_BOW = new RegionalBow(ToolMaterials.DIAMOND, 1.5f,RegionalItems.GHOST_COPPER_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS); 
 
-    public static final RegionalBow FREEZING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(),true, false, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
+    public static final RegionalBow FREEZING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(),true, false, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VIGOR_VITA);
     public static final RegionalBow SCORCHING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.STRENGTH_VITA);
     public static final RegionalBow BLOOMING_NETHERITE_BOW = new RegionalBow(ToolMaterials.NETHERITE, 1.75f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
 
@@ -36,7 +36,7 @@ public class RegionalWeapons {
     public static final RegionalCrossbow AMBER_IRON_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.AMBER_IRON_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.SLOWNESS_MORS); 
     public static final RegionalCrossbow GHOST_COPPER_CROSSBOW = new RegionalCrossbow(ToolMaterials.DIAMOND, 1.6f,RegionalItems.GHOST_COPPER_INGOT, new Item.Settings(),false,true,RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.KINDNESS_MORS); 
     
-    public static final RegionalCrossbow FREEZING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(),true, false, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.HASTE_VITA);
+    public static final RegionalCrossbow FREEZING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(),true, false, RegionalStatusEffects.SPEED_VITA, RegionalStatusEffects.VIGOR_VITA);
     public static final RegionalCrossbow SCORCHING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.AGGRESSION_VITA, RegionalStatusEffects.STRENGTH_VITA);
     public static final RegionalCrossbow BLOOMING_NETHERITE_CROSSBOW = new RegionalCrossbow(ToolMaterials.NETHERITE, 1.8f, Items.NETHERITE_INGOT, new Item.Settings(), true, false, RegionalStatusEffects.RESITANCE_VITA, RegionalStatusEffects.ABSORPTION_VITA);
     

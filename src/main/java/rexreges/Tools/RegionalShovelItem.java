@@ -1,42 +1,35 @@
 package rexreges.Tools;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class RegionalShovelItem extends ShovelItem{
+public class RegionalShovelItem extends ShovelItem {
     private final boolean upgrade;
     private final StatusEffect bonusOne;
     private final StatusEffect bonusTwo;
 
-
-    public RegionalShovelItem(ShovelItem base, Settings settings, boolean upgrade, StatusEffect bonusOne, StatusEffect bonusTwo) {
-        super(base.getMaterial(), (int)(base.getAttackDamage() - base.getMaterial().getAttackDamage()), -3f, settings);
+    public RegionalShovelItem(ShovelItem base, Settings settings, boolean upgrade, StatusEffect bonusOne,
+            StatusEffect bonusTwo) {
+        super(base.getMaterial(), (int) (base.getAttackDamage() - base.getMaterial().getAttackDamage()), -3f, settings);
         this.upgrade = upgrade;
         this.bonusOne = bonusOne;
         this.bonusTwo = bonusTwo;
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
-        } else {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
-        }
-        super.inventoryTick(stack, world, entity, slot, selected);
-    }
-
-    @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean hit = super.postHit(stack, target, attacker);
-        if (hit && upgrade && RegionalToolItem.isCritial(attacker)) {
-            RegionalToolItem.critBonus(attacker, bonusOne);
+        if (hit && RegionalToolItem.isCritial(attacker)) {
+            attacker.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+            if (!upgrade) {
+                attacker.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0, false, false, true));
+            }
         }
         return hit;
     }
@@ -44,10 +37,12 @@ public class RegionalShovelItem extends ShovelItem{
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         boolean mine = super.postMine(stack, world, state, pos, miner);
-        if (mine && upgrade) {
-            RegionalToolItem.critBonus(miner, bonusOne);
+        if (mine) {
+            miner.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+            if (!upgrade) {
+                miner.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0, false, false, true));
+            }
         }
         return mine;
     }
 }
-

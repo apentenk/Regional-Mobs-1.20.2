@@ -9,6 +9,7 @@ import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,7 +22,6 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import rexreges.Tools.RegionalToolItem;
 
 public class RegionalTridentEntity extends TridentEntity {
     private boolean dealtDamage;
@@ -29,7 +29,9 @@ public class RegionalTridentEntity extends TridentEntity {
     private ToolMaterial material;
     private boolean isCritical = false;
     private StatusEffect bonusOne;
+    private StatusEffect bonusTwo;
     private boolean upgrade;
+    private boolean alloy;
 
     private EntityType<? extends RegionalTridentEntity> type;
 
@@ -47,8 +49,10 @@ public class RegionalTridentEntity extends TridentEntity {
         this.tridentStack = new ItemStack(trident);
         this.material = trident.getMaterial();
         this.type = trident.getEntityType();
-        this.bonusOne = trident.getBonus();
+        this.bonusOne = trident.getBonusOne();
+        this.bonusTwo = trident.getBonusTwo();
         this.upgrade = trident.isUpgrade();
+        this.alloy = trident.isAlloy();
     }
 
     private RegionalTrident getTrident(EntityType<? extends RegionalTridentEntity> entityType) {
@@ -107,8 +111,14 @@ public class RegionalTridentEntity extends TridentEntity {
                     EnchantmentHelper.onTargetDamaged((LivingEntity) entity2, livingEntity2);
                 }
                 this.onHit(livingEntity2);
-                if (isCritical && this.upgrade && this.getOwner() instanceof LivingEntity){
-                    RegionalToolItem.critBonus((LivingEntity)this.getOwner(), this.bonusOne);
+                if (isCritical && this.getOwner() instanceof LivingEntity) {
+                    LivingEntity owner = (LivingEntity) this.getOwner();
+                    if (this.upgrade) {
+                        owner.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+                    } else if (this.alloy) {
+                        owner.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+                        owner.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0, false, false, true));
+                    }
                 }
             }
         }

@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -13,6 +12,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.Item;
@@ -29,8 +29,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import rexreges.Tools.RegionalToolItem;
 
-public class RegionalTrident extends TridentItem{
-        private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+public class RegionalTrident extends TridentItem {
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
     private final ToolMaterial material;
     private final float attackSpeed;
     private final int enchantability;
@@ -42,14 +42,14 @@ public class RegionalTrident extends TridentItem{
     private final String name;
     private final EntityType<? extends RegionalTridentEntity> entityType;
 
-
     public RegionalTrident(ToolMaterial material, float attackSpeed, String name,
             EntityType<? extends RegionalTridentEntity> entityType) {
-        this(material, attackSpeed, material.getRepairIngredient(), name, entityType,false, false,null,null);
+        this(material, attackSpeed, material.getRepairIngredient(), name, entityType, false, false, null, null);
     }
 
     public RegionalTrident(ToolMaterial material, float attackSpeed, Ingredient repair, String name,
-            EntityType<? extends RegionalTridentEntity> entityType, boolean upgrade, boolean alloy, StatusEffect bonusOne, StatusEffect bonusTwo) {
+            EntityType<? extends RegionalTridentEntity> entityType, boolean upgrade, boolean alloy,
+            StatusEffect bonusOne, StatusEffect bonusTwo) {
         super(new Item.Settings().maxDamage(material.getDurability()));
         this.material = material;
         this.attackSpeed = attackSpeed;
@@ -73,7 +73,6 @@ public class RegionalTrident extends TridentItem{
         return this.entityType;
     }
 
-
     public ToolMaterial getMaterial() {
         return this.material;
     }
@@ -91,12 +90,20 @@ public class RegionalTrident extends TridentItem{
         return this.name;
     }
 
-    public boolean isUpgrade(){
+    public boolean isUpgrade() {
         return this.upgrade;
     }
 
-    public StatusEffect getBonus(){
+    public boolean isAlloy(){
+        return this.alloy;
+    }
+
+    public StatusEffect getBonusOne() {
         return this.bonusOne;
+    }
+
+    public StatusEffect getBonusTwo() {
+        return this.bonusTwo;
     }
 
     public String getTexture() {
@@ -160,20 +167,15 @@ public class RegionalTrident extends TridentItem{
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
-        } else if(alloy){
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
-        }
-        super.inventoryTick(stack, world, entity, slot, selected);
-    }
-
-    @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-        if (upgrade) {
-            RegionalToolItem.critBonus(attacker, bonusOne);
+        if (RegionalToolItem.isCritial(attacker)) {
+            if (this.upgrade) {
+                attacker.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+            }else if (this.alloy){
+                attacker.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+                attacker.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0, false, false, true));
+            }
         }
         return true;
     }

@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpectralArrowItem;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
-import rexreges.Tools.RegionalToolItem;
 
 public class RegionalArrowEntity extends ArrowEntity {
     private final boolean upgrade;
@@ -59,13 +58,14 @@ public class RegionalArrowEntity extends ArrowEntity {
                 StatusEffectInstance statusEffectInstance = new StatusEffectInstance(StatusEffects.GLOWING, 200, 0);
                 target.addStatusEffect(statusEffectInstance, this.getEffectCause());
             }
-            if (upgrade) {
-                if (this.crit) {
-                    RegionalToolItem.critBonus(attacker, bonusOne);
+            if (this.crit) {
+                if (this.upgrade) {
+                    attacker.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0,false,false, true));
+                } else if(this.alloy){
+                    attacker.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0,false,false, true));
+                    attacker.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0,false,false, true));
                 }
-                RegionalToolItem.addBonusEffect(attacker, bonusOne, 0, false);
-            } else if(this.alloy) {
-                RegionalToolItem.addBonusEffects(attacker, bonusOne, bonusTwo, 0);
+                
             }
         }
     }

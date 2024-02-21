@@ -1,44 +1,38 @@
 package rexreges.Tools;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class RegionalSwordItem extends SwordItem{
+public class RegionalSwordItem extends SwordItem {
     private final boolean upgrade;
     private final StatusEffect bonusOne;
     private final StatusEffect bonusTwo;
 
     public RegionalSwordItem(SwordItem base, Settings settings, boolean upgrade, StatusEffect bonusOne,
             StatusEffect bonusTwo) {
-        super(base.getMaterial(), (int) (base.getAttackDamage() - base.getMaterial().getAttackDamage()), -2.4f, settings);
+        super(base.getMaterial(), (int) (base.getAttackDamage() - base.getMaterial().getAttackDamage()), -2.4f,
+                settings);
         this.upgrade = upgrade;
         this.bonusOne = bonusOne;
         this.bonusTwo = bonusTwo;
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (upgrade) {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, 0);
-        } else {
-            RegionalToolItem.updateToolBonus(world, entity, selected, bonusOne, bonusTwo, 0);
-        }
-        super.inventoryTick(stack, world, entity, slot, selected);
-    }
-
-    @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean hit = super.postHit(stack, target, attacker);
-        if (hit && upgrade && RegionalToolItem.isCritial(attacker)) {
-            RegionalToolItem.critBonus(attacker, bonusOne);
+        if (hit && RegionalToolItem.isCritial(attacker)) {
+            attacker.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+            if (!upgrade) {
+                attacker.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0, false, false, true));
+            }
         }
         return hit;
     }
@@ -48,8 +42,9 @@ public class RegionalSwordItem extends SwordItem{
         if (state.getHardness(world, pos) != 0.0f) {
             if (state.isIn(BlockTags.SWORD_EFFICIENT)) {
                 stack.damage(1, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-                if (upgrade) {
-                    RegionalToolItem.critBonus(miner, bonusOne);
+                miner.addStatusEffect(new StatusEffectInstance(bonusOne, 200, 0, false, false, true));
+                if (!upgrade) {
+                    miner.addStatusEffect(new StatusEffectInstance(bonusTwo, 200, 0, false, false, true));
                 }
             } else {
                 stack.damage(2, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
